@@ -1,0 +1,3 @@
+syntax = "proto3";
+
+import "ru/meetup/grpc/service/account.proto";

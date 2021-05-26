@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package ru.meetup.grpc;
+
+import "google/protobuf/wrappers.proto";
+
+message ResponseMeta {
+    google.protobuf.StringValue trackingId = 1;
+    repeated google.protobuf.StringValue errors = 2;
+}

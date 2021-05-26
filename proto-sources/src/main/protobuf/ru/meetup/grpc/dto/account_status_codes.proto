@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package ru.meetup.grpc.dto;
+
+
+enum AccountStatusCode {
+    NORMAL = 0;
+    CLOSED = 1;
+    NEW    = 2;
+}

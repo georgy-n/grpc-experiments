@@ -1,0 +1,51 @@
+syntax = "proto3";
+package ru.meetup.grpc.dto;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+import "ru/meetup/grpc/dto/account_id.proto";
+import "ru/meetup/grpc/dto/account_status_codes.proto";
+import "ru/meetup/grpc/dto/card.proto";
+import "ru/meetup/grpc/dto/user_id.proto";
+import "ru/meetup/grpc/dto/money.proto";
+
+
+message Account {
+    oneof value {
+        Debit debit = 1;
+        Credit credit = 2;
+        Deposit deposit = 3;
+    }
+}
+
+message Debit {
+    AccountId id = 1;
+    google.protobuf.StringValue name = 2;
+    AccountStatusCode status = 4;
+    UserId contactId = 5;
+
+    MoneyAmount amount = 6;
+    repeated Card cards = 7;
+}
+
+
+message Credit {
+    AccountId id = 1;
+    google.protobuf.StringValue name = 2;
+    AccountStatusCode status = 4;
+    UserId contactId = 5;
+
+    MoneyAmount amount = 7;
+    MoneyAmount creditLimit = 8;
+    repeated Card cards = 9;
+}
+
+message Deposit {
+    AccountId id = 1;
+    google.protobuf.StringValue name = 2;
+    AccountStatusCode status = 4;
+    UserId contactId = 5;
+
+    MoneyAmount amount = 6;
+}

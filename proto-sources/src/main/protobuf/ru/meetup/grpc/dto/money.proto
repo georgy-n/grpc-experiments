@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package ru.meetup.grpc.dto;
+
+import "google/protobuf/wrappers.proto";
+
+
+message MoneyAmount {
+    BDecimal value   = 1;
+    Currency currency = 2;
+}
+
+message Currency {
+    google.protobuf.StringValue code = 1;
+}
+
+message BDecimal {
+    google.protobuf.Int32Value scale  = 1;
+    google.protobuf.BytesValue intVal = 2;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package ru.meetup.grpc.dto;
+
+import "google/protobuf/wrappers.proto";
+
+message UserId {
+    google.protobuf.StringValue value = 1;
+}

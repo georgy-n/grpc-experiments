@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package ru.meetup.grpc.dto;
+
+import "google/protobuf/wrappers.proto";
+import "ru/meetup/grpc/dto/commons.proto";
+
+message CardId {
+    google.protobuf.StringValue value = 1;
+}
+
+message Card {
+    CardId id = 1;
+    google.protobuf.StringValue cardNumber = 2;
+    PaymentSystem paymentSystem = 3;
+}
